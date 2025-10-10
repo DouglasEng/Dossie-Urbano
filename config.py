@@ -9,4 +9,7 @@ class Config:
     
     REQUEST_TIMEOUT = 30
     
+    IBGE_API_BASE = os.getenv('IBGE_API_BASE', 'https://servicodados.ibge.gov.br/api/v1')
+
+
     CORS_ORIGINS = ["*"]  
