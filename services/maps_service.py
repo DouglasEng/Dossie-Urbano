@@ -2,6 +2,7 @@ import requests
 from typing import Dict, Any, Optional, List
 from config import Config
 import time
+from utils.cache import cache
 
 
 
@@ -20,7 +21,7 @@ class MapsService:
 
 
 
-    
+    @cache('geocode', timeout=86400)
     def endereço_geocodigo (self, endereco: str) -> Optional[Dict[str, Any]]:
         """Converte endereço em coordenadas geográficas usando Nominatim (OpenStreetMap)"""
         try:

@@ -1,6 +1,7 @@
 import requests
 from typing import Dict, Any, Optional
 from config import Config
+from utils.cache import cache
 
 
 
@@ -15,6 +16,8 @@ class IBGEService:
         self.base_url = Config.IBGE_API_BASE
         self.timeout = Config.REQUEST_TIMEOUT
     
+    @cache('ibge_municipio', timeout=86400)  #cache por 24 horas
+
     def obter_info_municipio(self, municipio: str, uf: str) -> Optional[Dict[str, Any]]:
         """Busca informações do municipio no IBGE"""
         try:
