@@ -6,6 +6,14 @@ class Config:
     
     SECRET_KEY = os.getenv('SECRET_KEY', 'mudar-chave-key-em-producao')
     DEBUG = os.getenv('FLASK_DEBUG', 'True').lower() == 'true'
+
+
+    # cache
+    REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
+    CACHE_TIMEOUT = int(os.getenv('CACHE_TIMEOUT', 3600))
+
+
+    
     
     REQUEST_TIMEOUT = 30
     
@@ -21,3 +29,4 @@ class Config:
 
 
     CORS_ORIGINS = ["*"]  
+
