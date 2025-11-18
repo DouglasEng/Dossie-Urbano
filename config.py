@@ -13,7 +13,7 @@ class Config:
     CACHE_TIMEOUT = int(os.getenv('CACHE_TIMEOUT', 3600))
 
 
-    
+    RATE_LIMIT_PER_MINUTE = int(os.getenv('RATE_LIMIT_PER_MINUTE', 60))
     
     REQUEST_TIMEOUT = 30
     
